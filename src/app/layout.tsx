@@ -1,6 +1,10 @@
+'use client'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from '../../node_modules/next/link'
+import store from '../redux/store'
+import { Provider } from '../../node_modules/react-redux/es/index'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +20,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <h1>Teste plin</h1>
+        <nav>
+          <ul>
+            <li>
+              <Link href="/weather">Weather</Link>
+            </li>
+            <li>
+              <Link href="/cep">Cep</Link>
+            </li>
+            <li>
+              <Link href="/contact">Contato</Link>
+            </li>
+          </ul>
+        </nav>
+        <hr />
+        <Provider store={store}>
+          {children}
+        </Provider>
+      </body>
     </html>
   )
 }
