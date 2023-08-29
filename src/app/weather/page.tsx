@@ -31,7 +31,7 @@ export default function Weather() {
   const getWeather = async () => {
     setLoading(true)
     try {
-      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=108e76856c964271b19200139232608&q=${lat},${long}&aqi=yes&lang=pt`)
+      const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=108e76856c964271b19200139232608&q=${lat},${long}&aqi=yes&lang=pt`)
       const getResponse = await response.json()
       dispatch(changeLocation(getResponse.location))
       dispatch(changeCurrent(getResponse.current))
