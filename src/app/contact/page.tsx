@@ -2,7 +2,7 @@
 import React, { FormEvent, useState } from 'react'
 import Input from './components/Input'
 
-export default function page() {
+export default function Contact() {
   const [inputValues, setInputValues] = useState({
     name: '',
     lastName: '',
@@ -10,8 +10,6 @@ export default function page() {
     phone: '',
     email: '',
     github: '',
-    password: '',
-    passwordConfirm: '',
   });
 
   const [fileInput, setFileInput] = useState()

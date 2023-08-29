@@ -1,4 +1,4 @@
-'user client'
+'use client'
 import React from 'react'
 import SelectIcon from '../../components/icons/index';
 import { ClimateState } from '../../../redux/ducks/climate';
@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className='flex flex-col gap-3'>
       <div className='flex flex-col items-start gap-2'>
-        <img width='64px' src={current?.condition.icon} />
+        <img alt='condition_icon' width={64} height={64} src={current?.condition.icon} />
         <span className='text-5xl'>{current?.temp_c} º</span>
         <span className='text-md'>{current?.condition.text}</span>
       </div>
