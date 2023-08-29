@@ -1,8 +1,10 @@
 import React from 'react';
+import Close from './components/Close';
 import Date from './components/Date';
 import Eye from './components/Eye';
 import Humidity from './components/Humidity';
 import MapPin from './components/MapPin';
+import Menu from './components/Menu';
 import Moon from './components/Moon';
 import Pressure from './components/Pressure';
 import Sun from './components/Sun';
@@ -18,7 +20,9 @@ type Icons =
   'wind' |
   'humidity' |
   'date' |
-  'map_pin'
+  'map_pin' |
+  'menu' |
+  'close'
 
 
 export default function SelectIcon(
@@ -43,6 +47,10 @@ export default function SelectIcon(
       return <Date />;
     case 'map_pin':
       return <MapPin />;
+    case 'close':
+      return <Close />;
+    case 'menu':
+      return <Menu />;
     default:
       break;
   }
