@@ -1,30 +1,33 @@
 // State Types
 
+import { ICep } from "@/types/Cep";
+
 export interface CepState {
-  postCode: string;
-  rua: string;
+  cepResponse: ICep
 }
 
 // Action Types
 
 export const Types = {
-  CHANGE_POST_CODE: 'cep/CHANGE_POST_CODE',
-  CHANGE_RUA: 'cep/CHANGE_RUA',
+  CHANGE_CEP_RESPONSE: 'cep/CHANGE_CEP_RESPONSE'
 };
 
 // Reducer
 
 const initialState: CepState = {
-  postCode: '125',
-  rua: '124',
+  cepResponse: {
+    bairro: '',
+    cep: '',
+    cidade: '',
+    logradouro: '',
+    uf: ''
+  }
 };
 
 export default function reducer(state = initialState, action: any) {
   switch (action.type) {
-    case Types.CHANGE_POST_CODE:
-      return { ...state, postCode: action.payload };
-    case Types.CHANGE_RUA:
-      return { ...state, rua: action.payload };
+    case Types.CHANGE_CEP_RESPONSE:
+      return { ...state, cepResponse: action.payload };
     default:
       return state;
   }
@@ -32,18 +35,9 @@ export default function reducer(state = initialState, action: any) {
 
 // Action Creators
 
-export function changePostCode(postCode: string) {
+export function changeCepResponse(cepResponse: ICep[]) {
   return {
-    type: Types.CHANGE_POST_CODE,
-    payload: {
-      postCode
-    },
-  }
-}
-
-export function changeRua(rua: string) {
-  return {
-    type: Types.CHANGE_RUA,
-    payload: rua
+    type: Types.CHANGE_CEP_RESPONSE,
+    payload: cepResponse
   }
 }

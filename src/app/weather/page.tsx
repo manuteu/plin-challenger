@@ -1,6 +1,6 @@
 'use client'
 import { changeCurrent, changeLat, changeLocation, changeLong, ClimateState } from '@/redux/ducks/climate'
-import React, { Suspense, useState } from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Container from './components/Container'
@@ -36,7 +36,7 @@ export default function Weather() {
       dispatch(changeLocation(getResponse.location))
       dispatch(changeCurrent(getResponse.current))
 
-      await new Promise(resolve => setTimeout(resolve, 3000))
+      await new Promise(resolve => setTimeout(resolve, 1500))
     } catch (error) {
       console.log(error);
     } finally {
@@ -59,16 +59,17 @@ export default function Weather() {
   }, [lat])
 
   return (
-    <>
+    <div className='pt-16'>
       {geoLocationError && (
         <span>Para buscar o clima de onde está é preciso permitir a Geo Localização do Navegador</span>
       )}
-      {loading ? (
-        <Lottie className='h-[340px]' animationData={WeatherLottie} loop={true} />
-      ) : (
-        <Container />
-      )}
-
-    </>
+      {
+        loading ? (
+          <Lottie className='h-[340px]' animationData={WeatherLottie} loop={true} />
+        ) : (
+          <Container />
+        )
+      }
+    </div>
   )
 }

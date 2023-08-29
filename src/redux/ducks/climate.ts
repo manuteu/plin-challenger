@@ -1,6 +1,6 @@
 // State Types
 
-import { ICurrent, ILocation } from "../../views/Climate/types";
+import { ICurrent, ILocation } from "../../types/Climate";
 
 export interface ClimateState {
   long: string;
